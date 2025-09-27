@@ -45,7 +45,7 @@ body {
 
 .hero {
   position: relative;
-  height: 100vh;
+  height: 400px; /* ajusta según el espacio  */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -58,7 +58,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; /* solo ocupa el alto del hero */
   z-index: 0;
 }
 
