@@ -8,23 +8,35 @@
 </head>
 <body>
     <main>
+        
         <section class="hero">
+            <canvas id="matrix-bg"></canvas> <!-- FONDO MATRIX -->
+            <div class="hero-content">
             <img src="ronaldp.png" alt="Ronaldo Pank" class="profile-photo">
             <h1 id="typewriter"></h1>
-            <p class="tagline">Cloud Builder & AWS Enthusiast</p>
+            <p class="tagline">Entusiasta & IT</p>
             <a href="https://builder.aws.com/community/@ronaldo22as" target="_blank" class="aws-link">AWS Builder Center Profile</a>
+            </div>
         </section>
+        
+        <!-- <section class="hero">
+            <img src="ronaldp.png" alt="Ronaldo Pank" class="profile-photo">
+            <h1 id="typewriter"></h1>
+            <p class="tagline">Entusiasta & IT</p>
+            <a href="https://builder.aws.com/community/@ronaldo22as" target="_blank" class="aws-link">AWS Builder Center Profile</a>
+        </section> -->
 
         <section class="fun-facts">
-            <h3>Fun Facts About Me</h3>
+            <h3>Datos curiosos sobre mi</h3>
             <div class="facts-grid">
                 <div class="fact-card">
                     <h4>🚀 Desafio en progreso</h4>
-                    <p>Estoy haciendo el workshop de Nerdearla</p>
+                    <p>Estoy haciendo el workshop de Nerdearla, el aprendizaje es siempre es continuo</p>
                 </div>
                 <div class="fact-card">
                     <h4>🎯 Objetivo de aprendizaje</h4>
                     <p>Desarrollar mis skilss, un servicio de AWS a la vez, S3, Amplify</p>
+                    <p>Luego vemos hasta donde avanzamos con los créditos ganados</p>
                 </div>
                 <div class="fact-card">
                     <h4>💡 Proyecto demo</h4>
@@ -35,7 +47,7 @@
 
         <section class="aws-journey">
             <h3>Builder Challenge</h3>
-            <p>Actualmente estoy trabajando en un challenge que me asignaron en Nerdearla, subiedo mi sitio a Github y hosteandolo en AWS Amplify, es una adaptacionn del AWS Builder Challenge #2</p>
+            <p>Actualmente estoy trabajando en un challenge que me asignaron en Nerdearla, subiendo mi sitio a Github y hosteandolo en AWS Amplify, es una adaptacionn del AWS Builder Challenge #2</p>
             <a href="https://builder.aws.com/content/333fAHGmUSrbb4BwJ1hyMuUgQeS/hola-mundo-cloud-comenzando-tu-camino-en-la-nube" target="_blank" class="cta-button">Ver detalles del challenge</a>
         </section>
 
@@ -82,6 +94,48 @@
     }
 
     window.onload = typeWriter;
+    </script>
+
+
+    <script>
+    const canvas = document.getElementById("matrix-bg");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    // Posición inicial de las columnas
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)"; // oscurece lentamente
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0F0"; // verde matrix
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+        drops[i] = 0;
+        drops[i]++;
+    }
+    }
+
+    setInterval(draw, 35);
+
+    // Ajustar tamaño si la ventana cambia
+    window.addEventListener("resize", () => {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    });
     </script>
 
 </body>
