@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio Wweb - Ronaldo Pank </title>
+    <title>Your Name - Personal Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main>
         <section class="hero">
             <img src="ronaldp.png" alt="Ronaldo Pank" class="profile-photo">
-            <h1>Ronaldo Pank</h1>
+            <h1 id="typewriter"></h1>
             <p class="tagline">Cloud Builder & AWS Enthusiast</p>
-            <a href="https://builder.aws.com/community/@youralias" target="_blank" class="aws-link">AWS Builder Center Profile</a>
+            <a href="https://builder.aws.com/community/@ronaldo22as" target="_blank" class="aws-link">AWS Builder Center Profile</a>
         </section>
 
         <section class="fun-facts">
@@ -69,5 +69,20 @@
 
     <!-- Contact form JavaScript -->
     <script src="script.js"></script>
+    <script>
+    const text = "Ronaldo Pank";
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150); // velocidad (150ms por letra)
+        }
+    }
+
+    window.onload = typeWriter;
+    </script>
+
 </body>
 </html>
